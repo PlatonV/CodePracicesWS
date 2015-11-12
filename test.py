@@ -54,9 +54,21 @@ def testGetStudent():
     custom_assert("Student contains correct grade.", s.getGrade() == 6.432)
     custom_assert("Student contains correct county.", s.getCounty() == "Cluj")
 
+def testCheckStudent():
+    print(BOLD + "Testing checkStudent()" + END)
+    s = Student("asd", "asd", "asd@", 8, "Cluj")
+    custom_assert("Student with 8, Cluj", checkStudent(s) == True)
+    s = Student("asd", "asd", "asd@", 9, "Cluj")
+    custom_assert("Student with 9, Cluj", checkStudent(s) == True)
+    s = Student("asd", "asd", "asd@", 7.9, "Cluj")
+    custom_assert("Student with 7.9, Cluj", checkStudent(s) == False)
+    s = Student("asd", "asd", "asd@", 8, "asd")
+    custom_assert("Student with 8, not Cluj", checkStudent(s) == False)
+
 def testAll():
     testStudentClass()
     testGetStudent()
+    testCheckStudent()
 
 # Only call testAll if run as script
 if __name__ == "__main__":
