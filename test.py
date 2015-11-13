@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from student import Student
+from funcs import *
 from main import *
 
 RED = '\033[91m'
